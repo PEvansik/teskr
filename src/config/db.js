@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
 
+// mongoose.set('strictQuery', false)
+
+
+
 const connectDb = async _ => {
     try{
+        mongoose.set('strictQuery', false);
         const conn = await mongoose.connect(process.env.DB_STRING, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useFindAndModify: false,
         })
         console.log(`MongoDB connected: ${conn.connection.host}`)
     }

@@ -1,6 +1,11 @@
-const Router = require('express')
+const {Router} = require('express')
 const router = Router()
-const loginController = require('../controller/logincontroller')
+const passport = require('passport')
+const loginController = require('../controller/login')
 
+// use isAuth middleware here in place of passport if we are doing verification locally
 router.get('/', loginController.getLogin)
-router.post('/login', loginController.userLogin)
+// invoke pp b4 req hacont
+router.post('/', passport.authenticate('local'), loginController.postLogin)
+
+module.exports = router
