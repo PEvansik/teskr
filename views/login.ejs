@@ -33,21 +33,21 @@
                 </section>
     
         
-                <form action="#" id="form">
+                <form action="login" method="POST" id="login-form">
                     <div class="email">
                         <label for="emailaddress">Email:</label><br>
-                        <input type="email" id="emailaddress" name="email" class="email-input">
+                        <input type="email" id="emailaddress" name="email" class="email-input" required="required">
                     </div>
         
                     <div class="password">
                         <label for="password">Password:</label><br>
-                        <input type="password" id="password" name="password" class="pass-input">
+                        <input type="password" id="password" name="password" class="pass-input" required="required">
                     </div>
         
                     <div class="option">
                         <div>
-                            <input type="checkbox" name="remember">
-                            <p>Remember me for 30 days</p>
+                            <input type="checkbox" name="remember" required="required">
+                            <p>Remember me for 14 days</p>
                         </div>
                         <p><a href="#">Forgot password</a></p>
                     </div>

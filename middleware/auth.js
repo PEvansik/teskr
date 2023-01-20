@@ -6,7 +6,9 @@
 // req.session.isAuth to true
 
 const isAuth = (req, res, next) => {
-    if (!req.session.isAuth) res.redirect('/login');
+    if (!req.isAuthenticated()) res.redirect('/login');
+    console.log('user authenticated')
+    console.log(req.user)
     next()
 }
 

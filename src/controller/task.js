@@ -1,11 +1,15 @@
+// const passport = require('passport')
 const Task = require('../models/Task')
 
 const taskController = {
     getTask: async (req, res) => {
-        console.log(req.user)
         try{
+            console.log('entered task')
             const tasks = await Task.find({userId: req.user.id})
-            res.render('task', {todos: tasks, user: req.user})
+            console.log(tasks)
+            if (tasks) return res.render('task', {todos: tasks, user: req.user})
+            res.render('task')
+            
         }catch(err) {
             console.log(err)
         }

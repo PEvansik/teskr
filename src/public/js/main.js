@@ -1,8 +1,10 @@
 
 const signup = document.querySelector('#signup-form');
-console.log(signup)
+const login = document.querySelector('#login-form')
+console.log(login)
 
-signup.addEventListener('submit', createUser)
+// signup.addEventListener('submit', createUser)
+// login.addEventListener('submit', logUserIn)
 
 // update.addEventListener('click', updateCustomer)
 
@@ -20,14 +22,41 @@ async function createUser(ev) {
   try {
     console.log(option)
     let res = await fetch(formUrl, option)
-    if(!res.ok) return 'bad request'
-    const data = await res.json();
-    console.log(data)
-    location.reload()
+    if(!res.ok) return res.json()
+    // const data = await res.json();
+    document.body.innerHTML = await res.text()
+    console.log(res.headers.get('content-type'))
+    // location.reload()
+
+  }catch(err){
+    console.log(err)
+    console.error(err)
+  } 
+}
+
+async function logUserIn(ev) {
+  ev.preventDefault()
+  console.log(ev)
+  let form = ev.currentTarget
+  let formData = new FormData(form)
+  let formUrl = form.action
+  let formBody = Object.fromEntries(formData.entries())
+
+  const option = new Options('POST', formBody)
+
+  try {
+    console.log(option)
+    let res = await fetch(formUrl, option)
+    console.log(res.headers.get('content-type'))
+    if(!res.ok) return res.json()
+    // const data = await res.json();
+    document.body.innerHTML = await res.text()
+
+    // location.reload()
 
   }catch(err){
     console.error(err)
-  } 
+  }
 }
 
 // async function updateCustomer() {

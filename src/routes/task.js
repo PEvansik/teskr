@@ -2,6 +2,7 @@ const Router = require('express')
 const router = Router()
 const taskController = require('../controller/task')
 const isAuth = require('../../middleware/auth')
+const passport = require('passport')
 
 
 
@@ -19,8 +20,12 @@ const isAuth = require('../../middleware/auth')
 
 // OR
 // we use the isAuth middleware
+router.use(isAuth)
 
-router.get('/task', isAuth, taskController.getTask)
+
+// handle Authentication for a get request
+
+router.get('/', taskController.getTask)
 router.post('/task', taskController.postTask)
 router.put('/edittask', taskController.editTask)
 router.put('/markcomplte', taskController.markTaskComplete)

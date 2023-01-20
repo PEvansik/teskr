@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-
-// mongoose.set('strictQuery', false)
-
+require('dotenv').config({path: './.env'})
 
 
 const connectDb = async _ => {

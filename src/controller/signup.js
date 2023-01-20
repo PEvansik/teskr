@@ -5,44 +5,26 @@ const User = require('../models/User')
 
 const signupController = {
     getSignup : async (req, res) => {
-        res.render('signup')
+        if (!req.user) return res.render('signup');
+        res.redirect('task') 
     },
 
     postNewUSer : async (req, res) => {
-        // extract inputs
-        const {mail, user, password} = req.body
-
-        // check that they are not empty
-        if (!password || !mail || !user) return res.status(400).json({
-            status: "failed", 
-            data: {"message": "email and password are required"}
-        })
-        const duplicated = await User.findOne({$or: [{username: user}, {email: mail}]}).exec()
-        if (duplicated) return res.status(409).json({
-            status: "failed", 
-            data: {"message": "User already exist"}
-        })
+        const {email, username, password} = req.body
+        if (password.length <= 4 || !email || !username) return res.statusMessage("signup incomplete").redirect('/login')  // check if theis will throw an error
+        const duplicated = await User.findOne({$or: [{username: username}, {email: email}]}).exec()
+        if (duplicated) return res.statusMessage("User already exist").redirect('/login') // check if theis will throw an error
         try {
+            console.log(password)
             const hashPwd = await bcrypt.hash(password, 10) 
-            const newUser = await User.create({
-                "username": user,
-                "email": mail,
+            await User.create({
+                "username": username,
+                "email": email,
                 "password": hashPwd
             })
-            // OR
-            // const newUser = await new User({
-            //     "username": user,
-            //     "email": mail,
-            //     "password": hashPwd
-            // }).save
-            console.log(newUser)
-            console.log('logged in')
-
-
             res.redirect('/login')
-
-            // res.render('task')
-        } catch(err) {
+        } 
+        catch(err) {
             console.error(err)
         }
     }

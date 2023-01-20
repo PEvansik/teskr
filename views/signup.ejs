@@ -33,20 +33,20 @@
                 </section>
     
         
-                <form action="/signup" id="signup-form">
+                <form action="signup" method="POST" id="signup-form">
                     <div class="username">
                         <label for="user">Username:</label><br>
-                        <input type="text" id="user" name="user" class="user-input">
+                        <input type="text" id="user" name="username" class="user-input" required="required">
                     </div>
 
                     <div class="email">
                         <label for="emailaddress">Email:</label><br>
-                        <input type="email" id="emailaddress" name="mail" class="email-input">
+                        <input type="email" id="emailaddress" name="email" class="email-input" required="required">
                     </div>
         
                     <div class="password">
                         <label for="password">Password:</label><br>
-                        <input type="password" id="password" name="password" class="pass-input">
+                        <input type="password" id="password" name="password" class="pass-input" required="required">
                     </div>
         
                     <div class="option">
