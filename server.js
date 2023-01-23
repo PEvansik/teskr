@@ -8,8 +8,6 @@ const connectDb = require('./src/config/db')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const morgan = require('morgan')
-// const cookieParser = require('cookie-parser')
-// const { flash } = require('express-flash-message');
 
 
 const app = express()
@@ -19,6 +17,8 @@ const loginRoutes = require('./src/routes/login')
 const signupRoutes = require('./src/routes/signup')
 const taskRoutes = require('./src/routes/task')
 const logoutRoutes = require('./src/routes/logout')
+
+require('./src/models/User')
 
 
 require('dotenv').config({path: './src/config/.env'})
@@ -65,7 +65,6 @@ require('./src/config/passport')
 app.use(passport.initialize())
 app.use(passport.session())
 
-// app.use(flash())
 
 
 app.use('/', homeRoutes)
@@ -73,8 +72,6 @@ app.use('/login', loginRoutes)
 app.use('/signup', signupRoutes)
 app.use('/task', taskRoutes)
 app.use('/logout', logoutRoutes)
-
-// app.use('/archive', archiveRoutes)
 
 
 

@@ -1,4 +1,4 @@
-
+require('../models/User')
 require('../config/passport')
 
 module.exports = homeController = {
