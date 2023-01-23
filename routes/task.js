@@ -1,7 +1,7 @@
 const Router = require('express')
 const router = Router()
 const taskController = require('../controller/task')
-const isAuth = require('../../middleware/auth')
+const isAuth = require('../middleware/auth')
 const passport = require('passport')
 
 

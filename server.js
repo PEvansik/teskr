@@ -4,7 +4,7 @@ const path = require('path')
 const passport = require('passport')
 const isAuth = require('./middleware/auth')
 const MethodOverride =  require('method-override')
-const connectDb = require('./src/config/db')
+const connectDb = require('./config/db')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const morgan = require('morgan')
@@ -12,23 +12,23 @@ const morgan = require('morgan')
 
 const app = express()
 
-const homeRoutes = require('./src/routes/home')
-const loginRoutes = require('./src/routes/login')
-const signupRoutes = require('./src/routes/signup')
-const taskRoutes = require('./src/routes/task')
-const logoutRoutes = require('./src/routes/logout')
-
-require('./src/models/User')
+const homeRoutes = require('./routes/home')
+const loginRoutes = require('./routes/login')
+const signupRoutes = require('./routes/signup')
+const taskRoutes = require('./routes/task')
+const logoutRoutes = require('./routes/logout')
 
 
-require('dotenv').config({path: './src/config/.env'})
+require('dotenv').config({path: './config/.env'})
 
 
 // // import strategies from pasport
-require('./src/config/passport')
+require('./config/passport')
 
 // db connection
 connectDb()
+
+require('./models/User')
 
 PORT = process.env.PORT || 3000
 
@@ -42,7 +42,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 
-app.use(express.static('src/public'));
+app.use(express.static('public'));
 
 
 
@@ -59,7 +59,7 @@ app.use(
     })
 )
 
-require('./src/config/passport')
+require('./config/passport')
 
 
 app.use(passport.initialize())

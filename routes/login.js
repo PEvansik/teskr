@@ -11,7 +11,8 @@ router.get('/', loginController.getLogin)
 router.post('/', passport.authenticate('login', {
   failureRedirect: '/login',
   successRedirect: '/task',
-  }))
+  }
+))
 // router.post('/', isAuth, loginController.postLogin)
 
 module.exports = router
