@@ -26,10 +26,10 @@ router.use(isAuth)
 // handle Authentication for a get request
 
 router.get('/', taskController.getTask)
-router.post('/task', taskController.postTask)
+router.post('/createtodo', taskController.postTask)
 router.put('/edittask', taskController.editTask)
 router.put('/markcomplte', taskController.markTaskComplete)
 router.put('/markincomplete', taskController.markTaskIncomplete)
 router.delete('/deletetask', taskController.deleteTask)
 
-module.exports =router
+module.exports = router

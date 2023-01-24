@@ -21,6 +21,3 @@ const taskSchema = new Schema({
 })
 
 module.exports = mongoose.model('Task', taskSchema)
-
-
-//     created: new Date().toLocaleDateString()

@@ -224,9 +224,9 @@ ion-icon:hover {
 .trash-icon:hover ion-icon {
     color: rgb(255, 0, 0);
 }
-.checkmark-icon ion-icon {
+.not ion-icon {
     color: rgba(0, 128, 0, .6);
 }
-.checkmark-icon:hover ion-icon {
+.checkmark-icon ion-icon {
     color: rgb(0, 128, 0);
 }

@@ -7,9 +7,14 @@ const taskController = {
             console.log('entered task')
             const tasks = await Task.find({userId: req.user.id})
             console.log(tasks)
-            if (tasks) return res.render('task', {todos: tasks, user: req.user})
+            const itemsLeft = await Task.countDocuments({userId:req.user.id, completed: false})
+            if (tasks) return res.render('task', 
+                {
+                    todos: tasks, 
+                    left: itemsLeft,
+                }
+            )
             res.render('task')
-            
         }catch(err) {
             console.log(err)
         }
@@ -18,7 +23,14 @@ const taskController = {
 
     postTask: async (req, res) => {
         try{
-            await Task.create({task: req.body.task, completed: false, time: req.body.time, userId: req.used.id})
+            await Task.create(
+                {
+                    task: req.body.todoitem, 
+                    completed: false, 
+                    time: req.body.time, 
+                    userId: req.user.id
+                }
+            )
             console.log('Todo has been added');
             res.redirect('/task')
         }catch(err) {
@@ -28,7 +40,10 @@ const taskController = {
 
     editTask: async (req, res) => {
         try{
-            await Task.findOneAndUpdate({_id: taskFromClient}, {task: req.body.task})
+            await Task.findOneAndUpdate(
+                {_id: taskFromClient}, 
+                {task: req.body.task}
+            )
             console.log('Task has been edited')
             res.json('Marked Complete')
         }catch(err) {
@@ -38,7 +53,10 @@ const taskController = {
 
     markTaskComplete: async (req, res) => {
         try{
-            await Task.findOneAndUpdate({_id: taskFromClient}, {completed: true})
+            await Task.findOneAndUpdate(
+                {_id: req.body.todoIdFromJSFile}, 
+                {completed: true}
+            )
             console.log('Task has been updated complete')
             res.json('Marked Complete')
         }catch(err) {
@@ -48,7 +66,10 @@ const taskController = {
 
     markTaskIncomplete: async (req, res) => {
         try{
-            await Task.findOneAndUpdate({_id: taskFromClient}, {completed: false})
+            await Task.findOneAndUpdate(
+                {_id: req.body.todoIdFromJSFile}, 
+                {completed: false}
+            )
             console.log('Task has been updated incomplete')
             res.json('Marked Incomplete')
         }catch(err) {
@@ -58,9 +79,14 @@ const taskController = {
 
     deleteTask: async(req, res) => {
         try{
-            await Task.findOneAndDelete({_id: req.body.taskFromClient})
-            console.log('Task has been updated incomplete')
-            res.json('Task Deleted')
+            console.log(req.body.todoIdFromJSFile)
+            await Task.findOneAndDelete(
+                {_id: req.body.todoIdFromJSFile}
+            )
+            console.log(req.body.todoIdFromJSFile)
+            console.log('Task has been deleted')
+            // res.json('Task Deleted')
+            return res.redirect('/task')
         }catch(err) {
             console.log(err)
         }

@@ -11,15 +11,11 @@ passport.serializeUser((user, done) => {
 
 
 passport.deserializeUser(async (id, done) => {
-  console.log(id)
-  console.log('deserializing user')
   try {
     const user = await User.findById(id)
-    console.log(user)
     if (!user)  {
       throw new Error('User not found')
     }
-    console.log(user)
     done(null, user);
 
   } catch (err) {
