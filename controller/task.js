@@ -1,4 +1,3 @@
-// const passport = require('passport')
 const Task = require('../models/Task')
 
 const taskController = {

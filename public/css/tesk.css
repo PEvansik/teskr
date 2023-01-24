@@ -202,15 +202,29 @@ margin-block: .5rem;
 .task-container {
     border: 1px solid #00000055;
     width: 80%;
+    padding-block: 5px;
+}
+.tasks-holder {
+    list-style-type: disc;
 }
 .task-holder {
     border: 1px solid #00000055;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding-inline: 5px;
+    margin-block: 5px;
+}
+.task-item {
+    padding-inline: 5px;
+    outline: none !important;
+    border: none;
 }
 
+
 ion-icon:hover {
-    --ionicon-stroke-size: large
+    --ionicon-stroke-size: small;
 }
 .create-icon ion-icon {
     color: rgba(0, 0, 255, .5);
@@ -229,4 +243,11 @@ ion-icon:hover {
 }
 .checkmark-icon ion-icon {
     color: rgb(0, 128, 0);
+}
+
+
+@media screen and (width > 500px){
+    .task-holder {
+        flex-direction: row;
+    }
 }

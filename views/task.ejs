@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tesk</title>
-    <link rtask="stylesheet" href="css/tesk.css">
+    <link rel="stylesheet" type="text/css" href="css/tesk.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -38,15 +38,16 @@
         <form action="task/createtodo" method="POST" id="add-task">
             <label for="task">Add Task</label><br>
             <input type="text" id="task" name="todoitem" placeholder="Enter Todo Item">
-            <button type="submit">Add</button>
+            <button type="submit" id="submit">Add</button>
         </form>
     </section>
 
     <section class="container activities">
         <h2>ACTIVITIES</h2>
+        <p>You have <%= left %> things left to do.</p>
+        
         <ul class="tasks-holder">
             <!-- Items to form -->
-            <p>You have <%= left %> things left to do.</p>
             <% todos.forEach( task => { %>
                 <li class="task-holder" data-id="<%=task.id%>">
 
@@ -57,19 +58,19 @@
                     <section class="task-control">
                         <button class="create-icon">
                             <a href="/edittask">
-                                <ion-icon name="create-outline" size="large"></ion-icon>
+                                <ion-icon name="create-outline" size="small"></ion-icon>
                             </a>
                         </button>
 
                         <button class="trash-icon">
                             <a href="/deletetask">
-                                <ion-icon name="trash-outline" size="large"></ion-icon>
+                                <ion-icon name="trash-outline" size="small"></ion-icon>
                             </a>
                         </button>
 
                         <button class='<%= task.completed === true ? 'checkmark-icon' : 'not'%>' >
                             <a href="/markcomplete">
-                                <ion-icon name="checkmark-outline" size="large"></ion-icon>
+                                <ion-icon name="checkmark-outline" size="small"></ion-icon>
                             </a>
                         </button>
                     </section>
