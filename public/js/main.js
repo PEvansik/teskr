@@ -21,7 +21,7 @@ Array.from(todoIncomplete).forEach((el)=>{
 async function deleteTodo(){
   const btnClicked = this.parentNode
   const todoId = btnClicked.parentNode.dataset.id
-  console.log(todoId)
+
   try{
       const response = await fetch('/task/deletetask', {
           method: 'delete',
@@ -31,7 +31,6 @@ async function deleteTodo(){
           })
       })
       const data = await response.json()
-      console.log(data)
       location.reload()
   }catch(err){
       console.log(err)
@@ -41,7 +40,7 @@ async function deleteTodo(){
 async function markComplete(){
   const btnClicked = this.parentNode
   const todoId = btnClicked.parentNode.dataset.id
-  console.log(todoId)
+
   try{
       const response = await fetch('/task/markcomplete', {
           method: 'put',
@@ -51,7 +50,7 @@ async function markComplete(){
           })
       })
       const data = await response.json()
-      console.log(data)
+
       location.reload()
   }catch(err){
       console.log(err)
@@ -61,7 +60,7 @@ async function markComplete(){
 async function markIncomplete(){
   const btnClicked = this.parentNode
   const todoId = btnClicked.parentNode.dataset.id
-  console.log(todoId)
+
   try{
       const response = await fetch('/task/markincomplete', {
           method: 'put',
@@ -71,7 +70,7 @@ async function markIncomplete(){
           })
       })
       const data = await response.json()
-      console.log(data)
+
       location.reload()
   }catch(err){
       console.log(err)
