@@ -2,9 +2,7 @@
 const deleteBtn = document.querySelectorAll('.trash-icon')
 const todoIncomplete = document.querySelectorAll('.not')
 const todoComplete = document.querySelectorAll('.checkmark-icon')
-console.log(Array.from(deleteBtn))
-console.log(Array.from(todoIncomplete))
-console.log(Array.from(todoComplete))
+
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -22,7 +20,7 @@ Array.from(todoComplete).forEach((el)=>{
 async function deleteTodo(){
   const btnClicked = this.parentNode
   const todoId = btnClicked.parentNode.dataset.id
-  console.log(todoId)
+
   try{
       const response = await fetch('task/deletetask', {
           method: 'delete',
@@ -42,7 +40,7 @@ async function deleteTodo(){
 async function markComplete(){
   const btnClicked = this.parentNode
   const todoId = btnClicked.parentNode.dataset.id
-  console.log(todoId)
+
   try{
       const response = await fetch('task/markcomplete', {
           method: 'put',
@@ -62,7 +60,7 @@ async function markComplete(){
 async function markIncomplete(){
   const btnClicked = this.parentNode
   const todoId = btnClicked.parentNode.dataset.id
-  console.log(todoId)
+
   try{
       const response = await fetch('task/markincomplete', {
           method: 'put',
