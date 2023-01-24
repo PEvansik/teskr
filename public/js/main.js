@@ -3,9 +3,7 @@ const todoIncomplete = document.querySelectorAll('.git-compare-icon')
 const deleteBtn = document.querySelectorAll('.trash-icon')
 const todoComplete = document.querySelectorAll('.checkmark-icon')
 
-console.log(Array.from(todoIncomplete))
-console.log(Array.from(deleteBtn))
-console.log(Array.from(todoComplete))
+
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -81,9 +79,6 @@ async function markIncomplete(){
 }
 
 
-
-// console.log(Array.from(testComplete))
-// const testComplete = document.querySelectorAll('.not')
 
 
 
