@@ -203,12 +203,11 @@ margin-block: .5rem;
     border: 1px solid #00000055;
     width: 90%;
     padding-block: 5px;
+    border: .2px solid #00000055;
+    border-radius: 3px;
 }
-.tasks-holder {
-    list-style-type: disc;
-}
+
 .task-holder {
-    border: 1px solid #00000055;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -256,9 +255,12 @@ ion-icon:hover {
 @media screen and (width > 500px){
     .task-holder {
         flex-direction: row;
+        border: .2px solid #00000055
     }
+
     .task-container {
         width: 80%;
+        border: none;
     }
     .task-control {
         width: 18%;
