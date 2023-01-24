@@ -37,20 +37,21 @@ const taskController = {
         }
     },
 
-    editTask: async (req, res) => {
-        try{
-            await Task.findOneAndUpdate(
-                {_id: taskFromClient}, 
-                {task: req.body.task}
-            )
-            console.log('Task has been edited')
-            res.json('Marked Complete')
-        }catch(err) {
-            console.log(err)
-        }
-    },
+    // editTask: async (req, res) => {
+    //     try{
+    //         await Task.findOneAndUpdate(
+    //             {_id: taskFromClient}, 
+    //             {task: req.body.task}
+    //         )
+    //         console.log('Task has been edited')
+    //         res.json('Marked Complete')
+    //     }catch(err) {
+    //         console.log(err)
+    //     }
+    // },
 
     markTaskComplete: async (req, res) => {
+        console.log('task complete')
         try{
             await Task.findOneAndUpdate(
                 {_id: req.body.todoIdFromJSFile}, 
@@ -64,6 +65,7 @@ const taskController = {
     },
 
     markTaskIncomplete: async (req, res) => {
+        console.log('task incomplete')
         try{
             await Task.findOneAndUpdate(
                 {_id: req.body.todoIdFromJSFile}, 

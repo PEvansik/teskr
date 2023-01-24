@@ -56,17 +56,20 @@
                     </div>
 
                     <section class="task-control">
-                        <button class="create-icon">
-                            <ion-icon name="create-outline" size="small"></ion-icon>
+                        <button class="git-compare-icon">
+                            <ion-icon name="git-compare-outline" size="small"></ion-icon>
                         </button>
 
                         <button class="trash-icon">
                             <ion-icon name="trash-outline" size="small"></ion-icon>
                         </button>
 
-                        <button class='<%= task.completed === true ? 'checkmark-icon' : 'not'%>' >
+                        <button class='checkmark-icon'>
                             <ion-icon name="checkmark-outline" size="small"></ion-icon>
                         </button>
+                        <!-- <button class='<%=' task.completed === true ? checkmark-icon : not'%>' >
+                            <ion-icon name="checkmark-outline" size="small"></ion-icon>
+                        </button> -->
                     </section>
                 </li>
             <% }) %>  

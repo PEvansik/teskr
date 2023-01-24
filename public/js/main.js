@@ -1,20 +1,21 @@
 
+const todoIncomplete = document.querySelectorAll('.git-compare-icon')
 const deleteBtn = document.querySelectorAll('.trash-icon')
-const todoIncomplete = document.querySelectorAll('.not')
 const todoComplete = document.querySelectorAll('.checkmark-icon')
-console.log(Array.from(deleteBtn))
+
 console.log(Array.from(todoIncomplete))
+console.log(Array.from(deleteBtn))
 console.log(Array.from(todoComplete))
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
 })
 
-Array.from(todoIncomplete).forEach((el)=>{
+Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markComplete)
 })
 
-Array.from(todoComplete).forEach((el)=>{
+Array.from(todoIncomplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
@@ -81,8 +82,8 @@ async function markIncomplete(){
 
 
 
-
-
+// console.log(Array.from(testComplete))
+// const testComplete = document.querySelectorAll('.not')
 
 
 

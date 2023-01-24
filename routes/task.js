@@ -10,8 +10,8 @@ router.use(isAuth)
 
 router.get('/', taskController.getTask)
 router.post('/createtodo', taskController.postTask)
-router.put('/edittask', taskController.editTask)
-router.put('/markcomplte', taskController.markTaskComplete)
+// router.put('/edittask', taskController.editTask)
+router.put('/markcomplete', taskController.markTaskComplete)
 router.put('/markincomplete', taskController.markTaskIncomplete)
 router.delete('/deletetask', taskController.deleteTask)
 

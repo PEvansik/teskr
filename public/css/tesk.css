@@ -191,6 +191,11 @@ margin-block: .5rem;
 .activities {
     margin-block: 2rem;
 }
+.tasks-holder {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
 .tasks-holder,
 .task-holder {
     border-radius: 1rem;
@@ -214,6 +219,7 @@ margin-block: .5rem;
     flex-direction: column;
     padding-inline: 5px;
     margin-block: 5px;
+    max-width: 700px;
 }
 .task-item {
     padding-inline: 5px;
@@ -232,10 +238,10 @@ margin-block: .5rem;
 ion-icon:hover {
     --ionicon-stroke-size: small;
 }
-.create-icon ion-icon {
+.git-compare-outline ion-icon {
     color: rgba(0, 0, 255, .5);
 }
-.create-icon:hover ion-icon {
+.git-compare-outline:hover ion-icon {
     color: rgb(0, 0, 255);
 }
 .trash-icon ion-icon {
