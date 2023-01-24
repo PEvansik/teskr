@@ -44,7 +44,8 @@
 
     <section class="container activities">
         <h2>ACTIVITIES</h2>
-        <p>You have <%= left %> task left to do.</p>
+
+        <p><%= (left >= 1) ? `You have ${left} task left to do` : `You have completed your task`   %>.</p>
         
         <ul class="tasks-holder">
             <!-- Items to form -->
@@ -52,19 +53,19 @@
                 <li class="task-holder" data-id="<%=task.id%>">
 
                     <div class="task-container">
-                        <p class="task-item"><%= task.task%></p>
+                        <p class="task-item"><%= task.task%> <span class="<%= (task.completed === true) && 'done'%>"><%= (task.completed === true) ? 'C' : "" %></span></p>
                     </div>
 
                     <section class="task-control">
-                        <button class="git-compare-icon">
+                        <button class="git-compare-icon" title="mark incomplete">
                             <ion-icon name="git-compare-outline" size="small"></ion-icon>
                         </button>
 
-                        <button class="trash-icon">
+                        <button class="trash-icon" title="delete task">
                             <ion-icon name="trash-outline" size="small"></ion-icon>
                         </button>
 
-                        <button class='checkmark-icon'>
+                        <button class='checkmark-icon' title="mark complete">
                             <ion-icon name="checkmark-outline" size="small"></ion-icon>
                         </button>
                         <!-- <button class='<%=' task.completed === true ? checkmark-icon : not'%>' >

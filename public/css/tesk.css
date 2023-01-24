@@ -24,9 +24,9 @@ ul {
 a {
     text-decoration: none;
 }
-span {
+/* span {
     display: block;
-}
+} */
 ::-webkit-scrollbar {
     width: .5rem;
     background-color:white;
@@ -225,6 +225,9 @@ margin-block: .5rem;
     padding-inline: 5px;
     outline: none !important;
     border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .task-control {
@@ -255,6 +258,15 @@ ion-icon:hover {
 }
 .checkmark-icon ion-icon {
     color: rgb(0, 128, 0);
+}
+
+.done {
+    width: 20px;
+    height: 20px;
+    color: white;
+    background-color: rgba(0, 128, 0, .6);
+    text-align: center;
+    border-radius: 3px;
 }
 
 
