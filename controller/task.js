@@ -84,8 +84,8 @@ const taskController = {
             )
             console.log(req.body.todoIdFromJSFile)
             console.log('Task has been deleted')
-            // res.json('Task Deleted')
-            return res.redirect('/task')
+            res.json('Task Deleted')
+            // return res.redirect('/task')
         }catch(err) {
             console.log(err)
         }
