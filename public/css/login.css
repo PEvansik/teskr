@@ -109,10 +109,11 @@ header {
 }
 .login-form {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
+}
+
+#login-form {
+    display: block;
 }
 
 .login-header {
@@ -160,4 +161,10 @@ input:focus {
     border-radius: .5rem;
     font-size: 1.6rem;
     border: 1px solid #00000055;
+}
+
+@media screen and (width > 600px) {
+    #login-form {
+        text-align: center;
+    }
 }

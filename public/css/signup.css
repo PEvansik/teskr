@@ -110,9 +110,6 @@ header {
 }
 .signup-form {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .signup-header {
@@ -161,4 +158,10 @@ margin-block: .5rem;
     border-radius: .5rem;
     font-size: 1.6rem;
     border: 1px solid #00000055;
+}
+
+@media screen and (width > 600px) {
+    #signup-form {
+        text-align: center;
+    }
 }
