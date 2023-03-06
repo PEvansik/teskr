@@ -1,1 +1,1 @@
-## [TESKR](https://teskr-production.up.railway.app/).
+## [TESKR](https://teskr-pevansik.onrender.com/).
